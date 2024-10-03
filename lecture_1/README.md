@@ -1,8 +1,17 @@
-# Установка PostgreSQL
-## Remote VM
+# ДЗ
+1. Развернуть ВМ (Linux) с PostgreSQL
+2. Залить Тайские перевозки https://github.com/aeuge/postgres16book/tree/main/database
+3. Посчитать количество поездок - select count(*) from book.tickets;
+
+# Выполнение
+## Установка PostgreSQL
+### Remote VM
 Сначала пытался установить PostgreSQL на удаленный VM в ВБ Клауд из официальных исходников,
 но столкнулся с проблемой при попытке апдейтнуть добавленный репо в apt-get.
-## Local Docker
+
+\* _К следующему домашнему заданию постараюсь сделать на remote VM_
+
+### Local Docker
 В виду того, что оставались полчаса до начала следующей лекции решил установить PostgreSQL на локальной машине через Docker.
 Запустил контейнер в демоне и подключился к нему через psql.
 ```bash
@@ -33,7 +42,6 @@ psql -U postgres
 ```psql
 \dt book.*
 ```
-### Задание:
 
 Посчитать количество поездок - select count(*) from book.tickets; 
 ```psql
