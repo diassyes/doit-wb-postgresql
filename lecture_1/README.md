@@ -27,28 +27,61 @@ psql -U postgres
 ```
 Посмотрел БД
 ```psql
-\l
+postgres=# \l
+
+   Name    |  Owner   | Encoding | Locale Provider |  Collate   |   Ctype    | Locale | ICU Rules |   Access privileges   
+-----------+----------+----------+-----------------+------------+------------+--------+-----------+-----------------------
+ postgres  | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |        |           | 
+ template0 | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |        |           | =c/postgres          +
+           |          |          |                 |            |            |        |           | postgres=CTc/postgres
+ template1 | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |        |           | =c/postgres          +
+           |          |          |                 |            |            |        |           | postgres=CTc/postgres
+ thai      | postgres | UTF8     | libc            | C.UTF-8    | C.UTF-8    |        |           | 
+(4 rows)
+
 ```
 Подключился к БД
 ```psql
-\c thai
+postgres=# \c thai
 ```
 Посмотрел схемы
 ```psql
-\dn
+thai=# \dn
+
+      List of schemas
+  Name  |       Owner       
+--------+-------------------
+ book   | postgres
+ public | pg_database_owner
+(2 rows)
+
+
 ```
 
 Посмотрел таблицу
 ```psql
-\dt book.*
+thai=# \dt book.*
+
+            List of relations
+ Schema |     Name     | Type  |  Owner   
+--------+--------------+-------+----------
+ book   | bus          | table | postgres
+ book   | busroute     | table | postgres
+ book   | busstation   | table | postgres
+ book   | fam          | table | postgres
+ book   | nam          | table | postgres
+ book   | ride         | table | postgres
+ book   | schedule     | table | postgres
+ book   | seat         | table | postgres
+ book   | seatcategory | table | postgres
+ book   | tickets      | table | postgres
+(10 rows)
 ```
 
 Посчитать количество поездок - select count(*) from book.tickets; 
 ```psql
 select count(*) from book.tickets;
-```
 
-```psql
   count  
 ---------
  5185505
